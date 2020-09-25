@@ -22,60 +22,16 @@ class UnlockView: XWView {
     
     var backBlock : (()->Void)?
     
+    fileprivate let titleLabel = XWLabel()
+    fileprivate let backImage = XWButton()
+    
     fileprivate lazy var tableView : UITableView = {
         
         let tableView = UITableView.init(frame: .zero, style: .plain)
-        let headView = UnlockHeadView.init(frame: .init(x: 0, y: 0, width: ScreenW, height:  200))
-        headView.backBlock = {
-            self.backBlock?()
-        }
-        let footView = UnlockFootView.init(frame: .init(x: 0, y: 0, width: ScreenW, height: 200))
-        footView.unlockBlock = {
-            
-            if !footView.isSelect {
-                AlertClass.showToat(withStatus: agreeAgreement)
-                return
-            }
-            
-            for model in self.payList {
-                if model.mchType == "applePay" {
-                    UnlockPresenter.purchasingRecharge(model: self.dataArray[self.selectIndex], thirdPayId: model.id!)
-                }
-            }
-            
-            
-            
-//            let payView = UnlockPayView()
-//            payView.dataArray = self.payList
-//            payView.payBlock = {(model) in
-//
-//                switch model.mchType {
-//                case "wxAppPay":
-//
-//                    self.count = 0
-//
-//                    UnlockPresenter.wechatPayAction(model: self.dataArray[self.selectIndex], thirdPayId: model.id!, success: {(orderId) in
-//
-//                        UnlockPresenter.checkPayStatus(orderId: orderId)
-//
-//                    })
-//                case "applePay":
-//                    UnlockPresenter.purchasingRecharge(model: self.dataArray[self.selectIndex], thirdPayId: model.id!)
-//                default:
-//                    break
-//                }
-//
-//
-//                payView.removeFromSuperview()
-//            }
-//            self.window?.addSubview(payView)
-//
-//            payView.snp.makeConstraints { (make) in
-//                make.edges.equalToSuperview().inset(UIEdgeInsets.zero)
-//            }
-//
-//            payView.tableView.animationWithAlertViewWithView()
-        }
+        let headView = UnlockHeadView.init(frame: .init(x: 0, y: 0, width: ScreenW, height:  160))
+        let footView = UnlockFootView.init(frame: .init(x: 0, y: 0, width: ScreenW, height: 140))
+        
+        
         tableView.tableHeaderView = headView
         tableView.tableFooterView = footView
         tableView.backgroundColor = UIColor.clear
@@ -91,14 +47,36 @@ class UnlockView: XWView {
     init() {
         super.init(frame: .zero)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(checkPayStatus), name: .checkPayStatus, object: nil)
+        titleLabel.text = unlockFunction
+        titleLabel.setFont(size: 20,isBold: true)
+        self.addSubview(titleLabel)
         
-        self.backgroundColor = UIColor.Theme.black
+        backImage.setImage(image: "white_back",color: UIColor.black)
+        backImage.addAction { (sender) in
+            self.backBlock?()
+        }
+        self.addSubview(backImage)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(checkPayStatus), name: .checkPayStatus, object: nil)
         
         self.addSubview(tableView)
         
+        titleLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(isIPhoneX ? 54 : 34)
+            make.centerX.equalToSuperview()
+            make.width.greaterThanOrEqualTo(10)
+            make.height.greaterThanOrEqualTo(10)
+        }
+        
+        backImage.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(10)
+            make.centerY.equalTo(titleLabel)
+            make.width.height.equalTo(30)
+        }
+        
         tableView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets.zero)
+            make.top.equalTo(titleLabel.snp.bottom).offset(25)
+            make.left.right.bottom.equalToSuperview()
         }
         
         getData()
@@ -149,6 +127,10 @@ extension UnlockView : UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
+        if indexPath.row == dataArray.count - 1 {
+            return 120
+        }
+        
         return 100
     }
     
@@ -159,17 +141,27 @@ extension UnlockView : UITableViewDelegate,UITableViewDataSource {
         
         cell?.discountLabel.isHidden = indexPath.row < 2
         cell?.newUserLabel.isHidden = indexPath.row < 2
+        cell?.oldPriceLabel.isHidden = indexPath.row >= 2
         cell?.model = dataArray[indexPath.row]
         
-        if selectIndex == indexPath.row {
-            cell?.selectView.isHidden = false
-            cell?.oldPriceLabel.textColor = UIColor.Theme.golden
-            cell?.newPriceLabel.textColor = UIColor.Theme.golden
+        cell?.isSelect = selectIndex == indexPath.row
+        
+        if indexPath.row == dataArray.count - 1 {
+            cell?.contentView.layoutIfNeeded()
+            cell?.blackView.setCorner(cornerRadius: 10, corner: [.bottomLeft,.bottomRight])
         }else{
-            cell?.selectView.isHidden = true
-            cell?.oldPriceLabel.textColor = UIColor.white
-            cell?.newPriceLabel.textColor = UIColor.white
+            cell?.contentView.layoutIfNeeded()
+            cell?.blackView.setCorner(cornerRadius: 0, corner: [.bottomLeft,.bottomRight])
         }
+        
+        cell?.confirmBtn.addAction({ (sender) in
+            
+            for model in self.payList {
+                if model.mchType == "applePay" {
+                    UnlockPresenter.purchasingRecharge(model: self.dataArray[indexPath.row], thirdPayId: model.id!)
+                }
+            }
+        })
         
         return cell!
     }

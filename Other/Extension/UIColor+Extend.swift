@@ -42,23 +42,25 @@ extension UIColor {
         
         static let pink = UIColor.red.withAlphaComponent(0.5)
         
-        static let golden = UIColor.rgb(244, 197, 134)
+        static let golden = UIColor.setRGB(0xFAD89A)
         
         static let cyan = UIColor.rgb(148, 232, 197)
         
         static let blue = UIColor.rgb(0, 198, 172)
         
-        static let goldenYellow = UIColor.rgb(240, 221, 190)
+        static let goldenBlack = UIColor.setRGB(0x282022)
         
-        static let brown = UIColor.rgb(98, 50, 0)
+        static let brown = UIColor.setRGB(0xEEC47E)
         
         static let gray = UIColor.darkGray
         
-        static let bgColor = UIColor.rgb(246, 243, 245)
+        static let bgColor = UIColor.setRGB(0xF7F3F5)
         
         static let black = UIColor.rgb(35, 35, 35)
         
         static let font = UIColor.rgb(125, 125, 125)
+        
+        static let vip_bg = UIColor.setRGB(0x282123)
         
         
         /// 根据字符串获取颜色
@@ -94,8 +96,8 @@ extension UIColor {
                     return green
                 case "cyan":
                     return cyan
-                case "goldenYellow":
-                    return goldenYellow
+                case "goldenBlack":
+                    return goldenBlack
                 case "brown":
                     return brown
                 case "gray":
@@ -112,6 +114,8 @@ extension UIColor {
                     return red
                 case "pink":
                     return pink
+                case "vip_bg":
+                    return vip_bg
                 default:
                     return UIColor.black
                 }

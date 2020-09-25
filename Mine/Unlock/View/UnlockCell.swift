@@ -12,111 +12,153 @@ class UnlockCell: XWTableViewCell {
     
     let newPriceLabel = XWLabel()
     let oldPriceLabel = XWLabel()
-    fileprivate let typeLabel = XWLabel()
-    fileprivate let priceLabel = XWLabel()
+    let typeLabel = XWLabel()
+    let priceLabel = XWLabel()
     let discountLabel = XWLabel()
     let newUserLabel = XWLabel()
+    let confirmBtn = XWButton()
     
-    let selectView = XWImageView()
+    let blackView = XWView()
+    let bgView = XWImageView()
     
     var model : UnlockModel! {
         didSet{
             updateData()
         }
     }
+    
+    var isSelect = false {
+        
+        didSet{
+            
+            if isSelect {
+                typeLabel.textColor = UIColor.Theme.goldenBlack
+                newPriceLabel.backgroundColor = UIColor.Theme.goldenBlack
+                newPriceLabel.textColor = UIColor.Theme.golden
+            }else{
+                typeLabel.textColor = UIColor.Theme.golden
+                newPriceLabel.backgroundColor = UIColor.Theme.golden
+                newPriceLabel.textColor = UIColor.Theme.goldenBlack
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        blackView.backgroundColor = UIColor.Theme.vip_bg
+        self.contentView.addSubview(blackView)
+        
+        bgView.backgroundColor = UIColor.Theme.brown
+        blackView.addSubview(bgView)
+        
+        newPriceLabel.numberOfLines = 0
+        newPriceLabel.textAlignment = .center
+        newPriceLabel.backgroundColor = UIColor.Theme.golden
         newPriceLabel.text = "98.0"
-        newPriceLabel.textColor = UIColor.white
-        newPriceLabel.setFont(size: 18, isBold: true)
-        self.contentView.addSubview(newPriceLabel)
+        newPriceLabel.textColor = UIColor.Theme.goldenBlack
+        newPriceLabel.setFont(size: 16, isBold: true)
+        newPriceLabel.setCornerRadius(25)
+        bgView.addSubview(newPriceLabel)
         
         oldPriceLabel.attributedText = "188.0".xw_addDeleteline()
         oldPriceLabel.textColor = UIColor.white
-        oldPriceLabel.setFont(size: 16, isBold: true)
-        self.contentView.addSubview(oldPriceLabel)
+        oldPriceLabel.setFont(size: 12)
+        bgView.addSubview(oldPriceLabel)
         
         typeLabel.text = monthCard
         typeLabel.textColor = UIColor.white
         typeLabel.setFont(size: 16)
-        self.contentView.addSubview(typeLabel)
+        bgView.addSubview(typeLabel)
         
         priceLabel.text = only + "3.3" + dayAndYuan
         priceLabel.textColor = UIColor.Theme.golden
         priceLabel.textAlignment = .center
         priceLabel.setFont(size: 14)
-        priceLabel.setCornerRadius(15)
-        priceLabel.setborder(size: 1, color: UIColor.Theme.golden)
-        self.contentView.addSubview(priceLabel)
+        bgView.addSubview(priceLabel)
         
         discountLabel.text = "66" + discount
         discountLabel.textAlignment = .center
-        discountLabel.backgroundColor = UIColor.rgb(255, 51, 53)
+        discountLabel.setBGImage(name: "arrow_bg")
         discountLabel.setCornerRadius(10)
         discountLabel.textColor = UIColor.white
         discountLabel.setFont(size: 14)
-        self.contentView.addSubview(discountLabel)
+        bgView.addSubview(discountLabel)
         
         newUserLabel.text = specialOffer
         newUserLabel.textAlignment = .center
         newUserLabel.backgroundColor = UIColor.rgb(60, 56, 44)
         newUserLabel.textColor = UIColor.Theme.golden
-        newUserLabel.setFont(size: 14)
-        newUserLabel.setCornerRadius(15)
-        self.contentView.addSubview(newUserLabel)
+        newUserLabel.setFont(size: 9)
+        newUserLabel.setCornerRadius(5)
+        bgView.addSubview(newUserLabel)
         
-        selectView.isHidden = true
-        selectView.backgroundColor = UIColor.Theme.golden.withAlphaComponent(0.2)
-        selectView.setborder(size: 2, color: UIColor.Theme.golden)
-        selectView.setCornerRadius(5)
-        self.contentView.addSubview(selectView)
+        confirmBtn.setText(text: toTopup)
+        confirmBtn.setFont(size: 14)
+        confirmBtn.setTextColor(color: UIColor.Theme.goldenBlack)
+        confirmBtn.backgroundColor = UIColor.Theme.golden
+        confirmBtn.setCornerRadius(12)
+        bgView.addSubview(confirmBtn)
         
-        priceLabel.snp.makeConstraints { (make) in
-            make.right.equalToSuperview().offset(-30)
-            make.centerY.equalToSuperview()
-            make.width.equalTo(100)
-            make.height.equalTo(30)
+        blackView.snp.makeConstraints { (make) in
+            make.top.bottom.equalToSuperview()
+            make.left.equalToSuperview().offset(20)
+            make.right.equalToSuperview().offset(-20)
+        }
+        
+        bgView.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(10)
+            make.height.equalTo(80)
+            make.left.equalToSuperview().offset(20)
+            make.right.equalToSuperview().offset(-20)
         }
         
         newPriceLabel.snp.makeConstraints { (make) in
-            make.bottom.equalTo(priceLabel.snp.centerY).offset(-5)
-            make.left.equalToSuperview().offset(30)
+            make.left.equalToSuperview().offset(10)
+            make.centerY.equalToSuperview()
+            make.width.height.equalTo(50)
+        }
+        
+        typeLabel.snp.makeConstraints { (make) in
+            make.bottom.equalTo(bgView.snp.centerY)
+            make.left.equalTo(newPriceLabel.snp.right).offset(10)
             make.width.greaterThanOrEqualTo(10)
             make.height.greaterThanOrEqualTo(10)
         }
         
         oldPriceLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(newPriceLabel.snp.right).offset(5)
+            make.bottom.equalTo(typeLabel)
+            make.left.equalTo(typeLabel.snp.right).offset(10)
+            make.width.greaterThanOrEqualTo(10)
+            make.height.greaterThanOrEqualTo(10)
+        }
+        
+        priceLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(typeLabel.snp.bottom).offset(5)
+            make.left.equalTo(typeLabel)
+            make.width.greaterThanOrEqualTo(10)
+            make.height.greaterThanOrEqualTo(10)
+        }
+        
+        confirmBtn.snp.makeConstraints { (make) in
+            make.right.equalToSuperview().offset(-20)
             make.centerY.equalTo(newPriceLabel)
-            make.width.greaterThanOrEqualTo(10)
-            make.height.greaterThanOrEqualTo(10)
-        }
-        
-        typeLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(newPriceLabel)
-            make.top.equalTo(priceLabel.snp.centerY).offset(5)
-            make.width.greaterThanOrEqualTo(10)
-            make.height.greaterThanOrEqualTo(10)
-        }
-        
-        discountLabel.snp.makeConstraints { (make) in
-            make.centerY.equalTo(oldPriceLabel)
-            make.left.equalTo(oldPriceLabel.snp.right).offset(5)
-            make.width.equalTo(50)
-            make.height.equalTo(20)
+            make.width.equalTo(80)
+            make.height.equalTo(24)
         }
         
         newUserLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(typeLabel.snp.right).offset(5)
-            make.centerY.equalTo(typeLabel)
-            make.width.equalTo(150)
-            make.height.equalTo(30)
+            make.bottom.equalTo(typeLabel)
+            make.left.equalTo(typeLabel.snp.right).offset(10)
+            make.width.equalTo(70)
+            make.height.equalTo(10)
         }
-        
-        selectView.snp.makeConstraints { (make) in
-            make.edges.equalToSuperview().inset(UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10))
+
+        discountLabel.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.right.equalToSuperview()
+            make.width.equalTo(50)
+            make.height.equalTo(20)
         }
         
     }
@@ -128,7 +170,7 @@ class UnlockCell: XWTableViewCell {
     fileprivate func updateData() {
         
         priceLabel.text = only + (model.unit ?? "0.0") + dayAndYuan
-        newPriceLabel.text = model.amount
+        newPriceLabel.text = model.amount! + "\n" + yuan
         oldPriceLabel.attributedText = model.price?.xw_addDeleteline()
         typeLabel.text = model.name
         discountLabel.text = "66" + discount

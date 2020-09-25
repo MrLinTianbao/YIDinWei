@@ -15,8 +15,6 @@ class UnlockFootView: XWView {
     fileprivate let agreeLabel = XWButton()
     fileprivate let aboutLabel = XWLabel()
     
-    var unlockBlock : (()->Void)?
-    
     var isSelect = true
 
     override init(frame: CGRect) {
@@ -24,15 +22,6 @@ class UnlockFootView: XWView {
         
         self.backgroundColor = UIColor.clear
         
-        unlockBtn.addAction { (sender) in
-            self.unlockBlock?()
-        }
-        unlockBtn.setText(text: toUnlock)
-        unlockBtn.setTextColor(color: UIColor.Theme.brown)
-        unlockBtn.setBGImage(name: "bg_btn_pay")
-        unlockBtn.setFont(size: 16,isBold: true)
-        unlockBtn.contentMode = .scaleAspectFit
-        self.addSubview(unlockBtn)
         
         selectImage.setBGImage(name: "agree_select")
         selectImage.addAction { (sender) in
@@ -41,7 +30,7 @@ class UnlockFootView: XWView {
         self.addSubview(selectImage)
         
         
-        
+        agreeLabel.setTextColor(color: UIColor.black)
         agreeLabel.setText(text: agreePaymentAgreement)
         agreeLabel.setFont(size: 14)
         agreeLabel.addAction { (sender) in
@@ -51,20 +40,12 @@ class UnlockFootView: XWView {
         
         aboutLabel.numberOfLines = 0
         aboutLabel.attributedText = aboutAgreement.xw_changeLineForString(lineSpace: 5)
-        aboutLabel.textColor = UIColor.white
         aboutLabel.setFont(size: 14)
         self.addSubview(aboutLabel)
         
-        unlockBtn.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(20)
-            make.centerX.equalToSuperview()
-            make.width.equalTo(200)
-            make.height.equalTo(40)
-        }
-        
         selectImage.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
-            make.top.equalTo(unlockBtn.snp.bottom).offset(20)
+            make.top.equalToSuperview().offset(20)
             make.width.height.equalTo(20)
         }
         

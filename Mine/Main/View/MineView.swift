@@ -111,7 +111,6 @@ extension MineView : UITableViewDelegate,UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? MineCell
         cell?.selectionStyle = .none
-//        cell?.accessoryType = .disclosureIndicator
         cell?.titleLabel.text = dataArray[indexPath.section][indexPath.row]
         
         cell?.contentView.layoutIfNeeded()
