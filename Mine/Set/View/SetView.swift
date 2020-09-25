@@ -39,7 +39,7 @@ class SetView: XWView {
         button.backgroundColor = UIColor.white
         button.setText(text: signOut)
         button.setFont(size: 16)
-        button.setTextColor(color: UIColor.Theme.green)
+        button.setTextColor(color: UIColor.Theme.red)
         button.setCornerRadius(20)
         button.setShadow(offsetW: 0, offsetH: 0)
         return button

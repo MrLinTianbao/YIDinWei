@@ -26,7 +26,9 @@ class NetworkRequest: NSObject {
         //数据格式
         manager.responseSerializer.acceptableContentTypes = NSSet.init(objects: ["text/html","application/json","text/json","text/javascript"]) as? Set<String>
         
+        
         manager.requestSerializer.setValue(UserInfo.authtoken, forHTTPHeaderField: "authtoken")
+        
 
         return manager
     }

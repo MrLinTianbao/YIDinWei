@@ -53,7 +53,7 @@ class HomeView: XWView {
         let button = XWButton()
         button.setFont(size: 16)
         button.setText(text: addCareAboutPeople)
-        button.backgroundColor = UIColor.Theme.green
+        button.backgroundColor = UIColor.Theme.red
         button.setCornerRadius(20)
         return button
         
@@ -249,7 +249,7 @@ extension HomeView : UITableViewDelegate,UITableViewDataSource {
             }
         }else{
             
-            let height = 50 + (dataArray[indexPath.row].address?.xw_calculateHeigh(withWidth: ScreenW-60, size: 13, lineSpacing: 0) ?? 0)
+            let height = 50 + (dataArray[indexPath.row].address?.xw_calculateHeigh(withWidth: ScreenW-94, size: 13, lineSpacing: 0) ?? 0)
             
             return height
         }
