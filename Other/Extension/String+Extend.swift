@@ -81,7 +81,7 @@ extension String {
     //MARK: 添加删除线
     public func xw_addDeleteline() -> NSAttributedString {
         
-        let attribtStr = NSAttributedString.init(string: self, attributes: [ NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.strikethroughStyle: NSNumber.init(value: Int8(NSUnderlineStyle.single.rawValue))])
+        let attribtStr = NSAttributedString.init(string: self, attributes: [ NSAttributedString.Key.foregroundColor: UIColor.Theme.golden, NSAttributedString.Key.strikethroughStyle: NSNumber.init(value: Int8(NSUnderlineStyle.single.rawValue))])
         
         return attribtStr
         

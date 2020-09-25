@@ -14,12 +14,12 @@ class UnlockCell: XWTableViewCell {
     let oldPriceLabel = XWLabel()
     let typeLabel = XWLabel()
     let priceLabel = XWLabel()
-    let discountLabel = XWLabel()
+    let discountLabel = XWButton()
     let newUserLabel = XWLabel()
     let confirmBtn = XWButton()
     
     let blackView = XWView()
-    let bgView = XWImageView()
+    let bgView = XWView()
     
     var model : UnlockModel! {
         didSet{
@@ -62,13 +62,13 @@ class UnlockCell: XWTableViewCell {
         bgView.addSubview(newPriceLabel)
         
         oldPriceLabel.attributedText = "188.0".xw_addDeleteline()
-        oldPriceLabel.textColor = UIColor.white
+        oldPriceLabel.textColor = UIColor.Theme.golden
         oldPriceLabel.setFont(size: 12)
         bgView.addSubview(oldPriceLabel)
         
         typeLabel.text = monthCard
-        typeLabel.textColor = UIColor.white
-        typeLabel.setFont(size: 16)
+        typeLabel.textColor = UIColor.Theme.goldenBlack
+        typeLabel.setFont(size: 16,isBold: true)
         bgView.addSubview(typeLabel)
         
         priceLabel.text = only + "3.3" + dayAndYuan
@@ -77,11 +77,8 @@ class UnlockCell: XWTableViewCell {
         priceLabel.setFont(size: 14)
         bgView.addSubview(priceLabel)
         
-        discountLabel.text = "66" + discount
-        discountLabel.textAlignment = .center
+        discountLabel.setText(text: "66" + discount)
         discountLabel.setBGImage(name: "arrow_bg")
-        discountLabel.setCornerRadius(10)
-        discountLabel.textColor = UIColor.white
         discountLabel.setFont(size: 14)
         bgView.addSubview(discountLabel)
         
@@ -173,7 +170,7 @@ class UnlockCell: XWTableViewCell {
         newPriceLabel.text = model.amount! + "\n" + yuan
         oldPriceLabel.attributedText = model.price?.xw_addDeleteline()
         typeLabel.text = model.name
-        discountLabel.text = "66" + discount
+        discountLabel.setText(text: "66" + discount)
     }
     
 }
