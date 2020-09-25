@@ -73,11 +73,11 @@ class MineViewController: XWViewController {
             self.navigationController?.pushViewController(MyPathViewController())
         case 1:
             self.navigationController?.pushViewController(ContactViewController())
-        case 2:
+        case 20:
             self.navigationController?.pushViewController(ServiceViewController())
-        case 4:
+        case 11:
             self.navigationController?.pushViewController(UseViewController())
-        case 5:
+        case 21:
             self.navigationController?.pushViewController(XWWebViewController())
         default:
             break

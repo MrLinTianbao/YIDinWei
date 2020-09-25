@@ -10,32 +10,51 @@ import UIKit
 
 class MineCell: XWTableViewCell {
     
-    let logoImageView = XWImageView()
-    
+    let bgView = XWView()
+    let nextImage = XWImageView()
     let titleLabel = XWLabel()
+    let lineView = XWView()
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        logoImageView.contentMode = .scaleAspectFit
-        self.contentView.addSubview(logoImageView)
+        self.contentView.addSubview(bgView)
         
-        titleLabel.setFont(size: 16)
+        titleLabel.setFont(size: 16,isBold: true)
         self.contentView.addSubview(titleLabel)
         
-        logoImageView.snp.makeConstraints { (make) in
+        nextImage.contentMode = .scaleAspectFit
+        nextImage.image = "tanshu_right_arrow".getImage()
+        self.contentView.addSubview(nextImage)
+        
+        lineView.backgroundColor = UIColor.Theme.lineColor
+        self.contentView.addSubview(lineView)
+        
+        bgView.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(20)
-            make.centerY.equalToSuperview()
-            make.width.height.equalTo(30)
+            make.right.equalToSuperview().offset(-20)
+            make.top.bottom.equalToSuperview()
+        }
+        
+        nextImage.snp.makeConstraints { (make) in
+            make.right.equalTo(bgView).offset(-20)
+            make.centerY.equalTo(bgView)
+            make.width.height.equalTo(10)
         }
         
         titleLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(logoImageView.snp.right).offset(10)
-            make.centerY.equalTo(logoImageView)
+            make.left.equalTo(bgView).offset(20)
+            make.centerY.equalTo(bgView)
             make.width.greaterThanOrEqualTo(10)
             make.height.greaterThanOrEqualTo(10)
         }
         
+        lineView.snp.makeConstraints { (make) in
+            make.bottom.equalToSuperview()
+            make.left.equalTo(titleLabel)
+            make.right.equalTo(nextImage)
+            make.height.equalTo(0.5)
+        }
         
     }
     

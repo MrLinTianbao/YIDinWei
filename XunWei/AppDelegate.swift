@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UITableView.appearance().estimatedSectionHeaderHeight = 0
         }
         
+        
         return true
     }
 
