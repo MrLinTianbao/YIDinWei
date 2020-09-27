@@ -71,20 +71,20 @@ class MineHeadView: XWView {
         }
         
         setbutton.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(30)
+            make.top.equalToSuperview().offset(isIPhoneX ? 45 : 30)
             make.right.equalToSuperview().offset(-20)
             make.width.height.equalTo(30)
         }
         
         headImageView.snp.makeConstraints { (make) in
-            make.top.equalTo(setbutton.snp.bottom).offset(10)
-            make.left.equalToSuperview().offset(20)
-            make.width.height.equalTo(70)
+            make.top.equalTo(setbutton.snp.bottom).offset(25)
+            make.left.equalToSuperview().offset(35)
+            make.width.height.equalTo(64)
         }
         
         phoneLabel.snp.makeConstraints { (make) in
             make.top.equalTo(headImageView).offset(10)
-            make.left.equalTo(headImageView.snp.right).offset(20)
+            make.left.equalTo(headImageView.snp.right).offset(10)
             make.width.greaterThanOrEqualTo(10)
             make.height.equalTo(20)
         }

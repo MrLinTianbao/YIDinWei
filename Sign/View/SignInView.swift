@@ -111,7 +111,7 @@ class SignInView: XWView {
         }
         
         arrowBtn.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(isIPhoneX ? 30 : 20)
+            make.top.equalToSuperview().offset(isIPhoneX ? 40 : 20)
             make.left.equalToSuperview().offset(10)
             make.width.height.equalTo(30)
         }

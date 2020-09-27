@@ -52,7 +52,7 @@ class UnlockFootView: XWView {
         tipLabel.snp.makeConstraints { (make) in
             make.left.equalTo(selectImage.snp.right)
             make.right.equalToSuperview().offset(-20)
-            make.top.equalToSuperview().offset(15)
+            make.top.equalToSuperview().offset(13)
             make.height.equalTo(30)
         }
         
