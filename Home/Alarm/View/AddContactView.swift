@@ -65,7 +65,7 @@ class AddContactView: XWView {
         confirmBtn.addAction { (sender) in
             self.addBlock?()
         }
-        confirmBtn.backgroundColor = UIColor.Theme.green
+        confirmBtn.backgroundColor = UIColor.Theme.red
         confirmBtn.setText(text: global_confirm)
         confirmBtn.setFont(size: 16)
         bgView.addSubview(confirmBtn)

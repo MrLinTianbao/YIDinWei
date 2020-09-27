@@ -100,7 +100,7 @@ extension NoticeView : UITableViewDelegate,UITableViewDataSource {
         cell?.model = dataArray[indexPath.row]
         
         if cell?.model.style == "1" && cell?.model.isAgree == "0" {
-            cell?.agreeBtn.backgroundColor = UIColor.Theme.green
+            cell?.agreeBtn.backgroundColor = UIColor.Theme.red
             cell?.agreeBtn.setText(text: agree)
             cell?.agreeBtn.setTextColor(color: UIColor.white)
             

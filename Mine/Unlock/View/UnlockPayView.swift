@@ -104,7 +104,7 @@ class UnlockPayView: XWView {
         
         let confirmBtn = XWButton()
         confirmBtn.setText(text: confirmPay)
-        confirmBtn.backgroundColor = UIColor.Theme.green
+        confirmBtn.backgroundColor = UIColor.Theme.red
         confirmBtn.setFont(size: 18)
         confirmBtn.setCornerRadius(5)
         confirmBtn.addAction { (sender) in

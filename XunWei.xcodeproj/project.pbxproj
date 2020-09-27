@@ -154,7 +154,7 @@
 		119FEB8B24DD4CDC00D2656D /* DatePathView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119FEB8A24DD4CDC00D2656D /* DatePathView.swift */; };
 		119FEB8D24DD4DC900D2656D /* SelectDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 119FEB8C24DD4DC900D2656D /* SelectDateView.swift */; };
 		11A975B5250F7ACF0067AD33 /* SignInPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A975B0250F7ACE0067AD33 /* SignInPresenter.swift */; };
-		11A975B6250F7ACF0067AD33 /* SignInViewController.swift 18-15-22-873.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A975B2250F7ACE0067AD33 /* SignInViewController.swift 18-15-22-873.swift */; };
+		11A975B6250F7ACF0067AD33 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A975B2250F7ACE0067AD33 /* SignInViewController.swift */; };
 		11A975B7250F7ACF0067AD33 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A975B4250F7ACE0067AD33 /* SignInView.swift */; };
 		11AE027E24EE467900180D00 /* WeChatPayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE027D24EE467900180D00 /* WeChatPayModel.swift */; };
 		11AE028024EE469900180D00 /* WeChatPayDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AE027F24EE469900180D00 /* WeChatPayDataModel.swift */; };
@@ -345,7 +345,7 @@
 		119FEB8A24DD4CDC00D2656D /* DatePathView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePathView.swift; sourceTree = "<group>"; };
 		119FEB8C24DD4DC900D2656D /* SelectDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDateView.swift; sourceTree = "<group>"; };
 		11A975B0250F7ACE0067AD33 /* SignInPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInPresenter.swift; sourceTree = "<group>"; };
-		11A975B2250F7ACE0067AD33 /* SignInViewController.swift 18-15-22-873.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SignInViewController.swift 18-15-22-873.swift"; sourceTree = "<group>"; };
+		11A975B2250F7ACE0067AD33 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		11A975B4250F7ACE0067AD33 /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		11AE027D24EE467900180D00 /* WeChatPayModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeChatPayModel.swift; sourceTree = "<group>"; };
 		11AE027F24EE469900180D00 /* WeChatPayDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeChatPayDataModel.swift; sourceTree = "<group>"; };
@@ -1216,7 +1216,7 @@
 		11A975B1250F7ACE0067AD33 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				11A975B2250F7ACE0067AD33 /* SignInViewController.swift 18-15-22-873.swift */,
+				11A975B2250F7ACE0067AD33 /* SignInViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1556,7 +1556,7 @@
 				11661BCB24DA84F600D5DB28 /* HomeViewController.swift in Sources */,
 				112D897724D01C09005BE72A /* MJManager.swift in Sources */,
 				112D898624D01D41005BE72A /* YXTool_OC.m in Sources */,
-				11A975B6250F7ACF0067AD33 /* SignInViewController.swift 18-15-22-873.swift in Sources */,
+				11A975B6250F7ACF0067AD33 /* SignInViewController.swift in Sources */,
 				112D895224D01971005BE72A /* XWText.swift in Sources */,
 				112D89DB24D01F6D005BE72A /* XWButton.swift in Sources */,
 				116F666524EB7D5A0068C4A5 /* ChangeNoteView.swift in Sources */,

@@ -39,7 +39,7 @@ class NoticeCell: XWTableViewCell {
         
         agreeBtn.setText(text: agree)
         agreeBtn.setFont(size: 16)
-        agreeBtn.backgroundColor = UIColor.Theme.green
+        agreeBtn.backgroundColor = UIColor.Theme.red
         agreeBtn.setCornerRadius(5)
         bgView.addSubview(agreeBtn)
         

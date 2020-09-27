@@ -58,7 +58,7 @@ class ChangeNoteView: XWView {
         }
         confirmBtn.setText(text: global_confirm)
         confirmBtn.setFont(size: 16)
-        confirmBtn.backgroundColor = UIColor.Theme.green
+        confirmBtn.backgroundColor = UIColor.Theme.red
         bgView.addSubview(confirmBtn)
         
     }

@@ -25,7 +25,7 @@ class ContactView: XWView {
         button.backgroundColor = UIColor.white
         button.setText(text: addContact)
         button.setFont(size: 16)
-        button.backgroundColor = UIColor.Theme.green
+        button.backgroundColor = UIColor.Theme.red
         button.setCornerRadius(20)
         button.setShadow(offsetW: 0, offsetH: 0)
         button.addAction { (sender) in

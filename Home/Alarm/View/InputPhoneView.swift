@@ -38,10 +38,10 @@ class InputPhoneView: XWView {
         self.addSubview(phoneTF)
         
         bookButton.setText(text: addressBook)
-        bookButton.setTextColor(color: UIColor.Theme.green)
+        bookButton.setTextColor(color: UIColor.Theme.red)
         bookButton.setCornerRadius(12.5)
         bookButton.setFont(size: 14)
-        bookButton.setborder(size: 1, color: UIColor.Theme.green)
+        bookButton.setborder(size: 1, color: UIColor.Theme.red)
         self.addSubview(bookButton)
         
         lineView.backgroundColor = UIColor.Theme.lineColor

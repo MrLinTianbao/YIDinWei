@@ -30,11 +30,17 @@ class UnlockViewController: XWViewController {
         unLockView.backBlock = {
             self.navigationController?.popViewController()
         }
+        unLockView.agreementBlock = {(text) in
+            if text == "privacy" {
+                self.navigationController?.pushViewController(TermsViewController.init(title: paymentAgreement, text: paymentProtocolDetails))
+            }
+        }
         self.view.addSubview(unLockView)
         
         unLockView.snp.makeConstraints { (make) in
             make.edges.equalToSuperview().inset(UIEdgeInsets.zero)
         }
+        
     }
     
 

@@ -222,4 +222,19 @@ class UnlockPresenter: NSObject {
         
     }
     
+    //MARK: 设置字体样式
+    static func setFontStyle() -> NSAttributedString {
+        
+        let string = agreePaymentAgreement.xw_changeLineForString(lineSpace: 5)
+        
+        let str = NSMutableAttributedString.init(attributedString: string)
+        let range = (agreePaymentAgreement as NSString).range(of: paymentAgreement)
+        
+        //添加超链接
+        str.addAttribute(NSAttributedString.Key.link, value: "privacy://", range: range)
+        
+        return str
+        
+    }
+    
 }

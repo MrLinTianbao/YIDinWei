@@ -10,10 +10,12 @@ import UIKit
 
 class UnlockFootView: XWView {
     
+    var agreementBlock : ((String)->Void)?
+    
     fileprivate let unlockBtn = XWButton()
     fileprivate let selectImage = XWButton()
-    fileprivate let agreeLabel = XWButton()
     fileprivate let aboutLabel = XWLabel()
+    fileprivate let tipLabel = XWTextView()
     
     var isSelect = true
 
@@ -29,14 +31,12 @@ class UnlockFootView: XWView {
         }
         self.addSubview(selectImage)
         
-        
-        agreeLabel.setTextColor(color: UIColor.black)
-        agreeLabel.setText(text: agreePaymentAgreement)
-        agreeLabel.setFont(size: 14)
-        agreeLabel.addAction { (sender) in
-            self.selectAction()
-        }
-        self.addSubview(agreeLabel)
+        tipLabel.attributedText = UnlockPresenter.setFontStyle()
+        tipLabel.linkTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.Theme.red]
+        tipLabel.delegate = self
+        tipLabel.setFont(size: 14)
+        tipLabel.isEditable = false
+        self.addSubview(tipLabel)
         
         aboutLabel.numberOfLines = 0
         aboutLabel.attributedText = aboutAgreement.xw_changeLineForString(lineSpace: 5)
@@ -49,18 +49,18 @@ class UnlockFootView: XWView {
             make.width.height.equalTo(20)
         }
         
-        agreeLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(selectImage.snp.right).offset(10)
-            make.width.greaterThanOrEqualTo(10)
-            make.centerY.equalTo(selectImage)
-            make.height.greaterThanOrEqualTo(10)
+        tipLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(selectImage.snp.right)
+            make.right.equalToSuperview().offset(-20)
+            make.top.equalToSuperview().offset(15)
+            make.height.equalTo(30)
         }
         
         aboutLabel.snp.makeConstraints { (make) in
             make.top.equalTo(selectImage.snp.bottom).offset(10)
-            make.left.equalTo(selectImage).offset(15)
+            make.left.equalTo(tipLabel)
             make.height.greaterThanOrEqualTo(10)
-            make.right.equalToSuperview().offset(-20)
+            make.right.equalTo(tipLabel)
         }
         
     }
@@ -78,6 +78,22 @@ class UnlockFootView: XWView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+extension UnlockFootView : UITextViewDelegate {
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        
+        if URL.scheme == "privacy" {
+            
+            self.agreementBlock?(URL.scheme!)
+            return true
+            
+        }
+        
+        return false
     }
     
 }

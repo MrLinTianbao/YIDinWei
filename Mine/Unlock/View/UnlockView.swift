@@ -11,6 +11,8 @@ import SwiftyJSON
 
 class UnlockView: XWView {
     
+    var agreementBlock : ((String)->Void)?
+    
     fileprivate let cellId = "unlockCell"
     
     fileprivate var selectIndex = 0
@@ -33,7 +35,9 @@ class UnlockView: XWView {
         tableView.backgroundColor = UIColor.Theme.bgColor
         let headView = UnlockHeadView.init(frame: .init(x: 0, y: 0, width: ScreenW, height:  160))
         let footView = UnlockFootView.init(frame: .init(x: 0, y: 0, width: ScreenW, height: 140))
-        
+        footView.agreementBlock = {(text) in
+            self.agreementBlock?(text)
+        }
         
         tableView.tableHeaderView = headView
         tableView.tableFooterView = footView
