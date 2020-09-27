@@ -22,11 +22,11 @@ class MineView: XWView {
     
     fileprivate let dataArray = [[myPath,contact],[share,useTutorial],[customerService,commonQuession]]
     
-    fileprivate lazy var tableView : UITableView = {
+    lazy var tableView : UITableView = {
         
         let tableView = UITableView.init(frame: .zero, style: .grouped)
         tableView.backgroundColor = UIColor.Theme.bgColor
-        let headView = MineHeadView.init(frame: .init(x: 0, y: 0, width: ScreenW, height: 240))
+        let headView = MineHeadView.init(frame: .init(x: 0, y: 0, width: ScreenW, height: ScreenW*0.62+40))
         headView.setbutton.addAction { (sender) in
             self.setBlock?()
         }

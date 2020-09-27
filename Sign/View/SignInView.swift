@@ -13,6 +13,8 @@ class SignInView: XWView {
     var backBlock : (()->Void)?
     var agreementBlock : ((String)->Void)?
     
+    fileprivate let bgImgeView = XWImageView()
+    
     fileprivate let logoImage = XWImageView()
     
     fileprivate let bgView = XWView()
@@ -36,7 +38,10 @@ class SignInView: XWView {
     init() {
         super.init(frame: .zero)
         
-        self.backgroundColor = UIColor.Theme.green
+        self.backgroundColor = UIColor.Theme.bgColor
+        
+        bgImgeView.image = "sign_bg".getImage()
+        self.addSubview(bgImgeView)
         
         logoImage.image = "icon".getImage()
         logoImage.setCornerRadius(30)
@@ -79,7 +84,7 @@ class SignInView: XWView {
         
         signInBtn.setText(text: signIn)
         signInBtn.setFont(size: 16)
-        signInBtn.backgroundColor = UIColor.Theme.red
+        signInBtn.setBGImage(name: "signBtn")
         signInBtn.addAction { (sender) in
             self.signInAction()
         }
@@ -100,6 +105,11 @@ class SignInView: XWView {
         tipLabel.isEditable = false
         self.addSubview(tipLabel)
         
+        bgImgeView.snp.makeConstraints { (make) in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(ScreenW*0.84)
+        }
+        
         arrowBtn.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(isIPhoneX ? 30 : 20)
             make.left.equalToSuperview().offset(10)
@@ -113,7 +123,7 @@ class SignInView: XWView {
         }
         
         bgView.snp.makeConstraints { (make) in
-            make.top.equalTo(logoImage.snp.bottom).offset(RATIO_H(maxNum: 32))
+            make.centerY.equalTo(bgImgeView.snp.bottom)
             make.left.equalToSuperview().offset(28)
             make.right.equalToSuperview().offset(-28)
             make.height.equalTo(250)

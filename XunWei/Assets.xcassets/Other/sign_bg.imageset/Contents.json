@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "登录-弧形背景.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon 上午10.20.22.png",
+      "filename" : "登录-弧形背景@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "登录-弧形背景@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

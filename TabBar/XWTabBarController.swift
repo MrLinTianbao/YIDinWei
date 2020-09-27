@@ -52,7 +52,7 @@ class XWTabBarController: UITabBarController {
     //MARK: 添加子视图
     fileprivate func addChildrenViewController(childVC:UIViewController,title:String,imageName:String,selectImage:String) {
         
-        let tabBar = UITabBarItem.init(title: title, image: imageName.getImage().withRenderingMode(.alwaysOriginal), selectedImage: selectImage.getImage().withRenderingMode(.alwaysOriginal))
+        let tabBar = UITabBarItem.init(title: title, image: imageName.getImage().withRenderingMode(.alwaysOriginal), selectedImage: (selectImage.getImage().xw_imageChangeColor(UIColor.Theme.red) ?? UIImage()).withRenderingMode(.alwaysOriginal))
 
         tabBar.setTitleTextAttributes(convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.black]), for: .selected)
         

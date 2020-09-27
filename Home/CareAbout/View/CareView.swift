@@ -13,9 +13,11 @@ class CareView: XWView {
     var backBlock : (()->Void)?
     var addBlock : (()->Void)?
     
+    fileprivate let titleLabel = XWLabel()
     fileprivate let addPhoneView = AddPhoneView()
     fileprivate let addwechatView = AddWechatView()
     fileprivate let confirmBtn = XWButton()
+    
     
     var phoneNumber = "" {
         didSet{
@@ -28,7 +30,7 @@ class CareView: XWView {
         
         let bgView = XWImageView()
         bgView.isUserInteractionEnabled = true
-        bgView.image = "tanshu_add_friend_bg".getImage()
+        bgView.image = "addFri_bg".getImage()
         self.addSubview(bgView)
         
         let backImage = XWButton()
@@ -37,30 +39,11 @@ class CareView: XWView {
             self.backBlock?()
         }
         bgView.addSubview(backImage)
-        
-        let addLabel = XWLabel()
-        addLabel.text = addFriends
-        addLabel.textColor = UIColor.white
-        addLabel.setFont(size: 20, isBold: true)
-        bgView.addSubview(addLabel)
-        
-        let checkLabel = XWLabel()
-        checkLabel.text = checkPosition
-        checkLabel.textColor = UIColor.white
-        checkLabel.setFont(size: 16, isBold: true)
-        bgView.addSubview(checkLabel)
-        
-        let meetLabel = XWLabel()
-        meetLabel.text = meetProblem
-        meetLabel.textColor = UIColor.white
-        meetLabel.setFont(size: 16, isBold: true)
-        bgView.addSubview(meetLabel)
-        
-        let guardianLabel = XWLabel()
-        guardianLabel.text = guardian
-        guardianLabel.textColor = UIColor.white
-        guardianLabel.setFont(size: 16, isBold: true)
-        bgView.addSubview(guardianLabel)
+
+        titleLabel.text = addFriends
+        titleLabel.setFont(size: 18,isBold: true)
+        titleLabel.textColor = UIColor.white
+        bgView.addSubview(titleLabel)
         
         addPhoneView.addBlock = {
             self.addBlock?()
@@ -78,14 +61,14 @@ class CareView: XWView {
         }
         confirmBtn.setText(text: addFriends)
         confirmBtn.setFont(size: 16,isBold: true)
-        confirmBtn.backgroundColor = UIColor.Theme.green
+        confirmBtn.backgroundColor = UIColor.Theme.red
         confirmBtn.setCornerRadius(10)
         confirmBtn.setShadow(offsetW: 0, offsetH: 0)
         self.addSubview(confirmBtn)
         
         bgView.snp.makeConstraints { (make) in
             make.top.left.right.equalToSuperview()
-            make.height.equalTo(300)
+            make.height.equalTo(ScreenW*0.73)
         }
         
         backImage.snp.makeConstraints { (make) in
@@ -94,36 +77,18 @@ class CareView: XWView {
             make.width.height.equalTo(30)
         }
         
-        addLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(backImage.snp.bottom).offset(20)
-            make.left.equalTo(backImage.snp.right)
-            make.right.equalToSuperview().offset(-10)
-            make.height.greaterThanOrEqualTo(10)
-        }
-        
-        checkLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(addLabel.snp.bottom).offset(10)
-            make.left.right.equalTo(addLabel)
-            make.height.greaterThanOrEqualTo(10)
-        }
-        
-        meetLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(checkLabel.snp.bottom).offset(5)
-            make.left.right.equalTo(checkLabel)
-            make.height.greaterThanOrEqualTo(10)
-        }
-        
-        guardianLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(meetLabel.snp.bottom).offset(5)
-            make.left.right.equalTo(meetLabel)
+        titleLabel.snp.makeConstraints { (make) in
+            make.centerY.equalTo(backImage)
+            make.centerX.equalToSuperview()
+            make.width.greaterThanOrEqualTo(10)
             make.height.greaterThanOrEqualTo(10)
         }
         
         addPhoneView.snp.makeConstraints { (make) in
-            make.top.equalTo(guardianLabel.snp.bottom).offset(40)
+            make.centerY.equalTo(bgView.snp.bottom)
             make.left.equalToSuperview().offset(20)
             make.right.equalToSuperview().offset(-20)
-            make.height.equalTo(120)
+            make.height.equalTo(110)
         }
         
         addwechatView.snp.makeConstraints { (make) in

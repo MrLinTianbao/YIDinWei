@@ -25,9 +25,12 @@ class UnlockView: XWView {
     fileprivate let titleLabel = XWLabel()
     fileprivate let backImage = XWButton()
     
+    fileprivate let bgView = XWImageView()
+    
     fileprivate lazy var tableView : UITableView = {
         
         let tableView = UITableView.init(frame: .zero, style: .plain)
+        tableView.backgroundColor = UIColor.Theme.bgColor
         let headView = UnlockHeadView.init(frame: .init(x: 0, y: 0, width: ScreenW, height:  160))
         let footView = UnlockFootView.init(frame: .init(x: 0, y: 0, width: ScreenW, height: 140))
         
@@ -47,6 +50,9 @@ class UnlockView: XWView {
     init() {
         super.init(frame: .zero)
         
+        bgView.image = "unlock_bg".getImage()
+        self.addSubview(bgView)
+        
         titleLabel.text = unlockFunction
         titleLabel.setFont(size: 20,isBold: true)
         self.addSubview(titleLabel)
@@ -60,6 +66,11 @@ class UnlockView: XWView {
         NotificationCenter.default.addObserver(self, selector: #selector(checkPayStatus), name: .checkPayStatus, object: nil)
         
         self.addSubview(tableView)
+        
+        bgView.snp.makeConstraints { (make) in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(ScreenW*0.677)
+        }
         
         titleLabel.snp.makeConstraints { (make) in
             make.top.equalToSuperview().offset(isIPhoneX ? 54 : 34)

@@ -72,7 +72,7 @@ class UnlockFootView: XWView {
         if self.isSelect {
             self.selectImage.setBGImage(name: "agree_select")
         }else{
-            self.selectImage.setBGImage(name: "agree_normal")
+            self.selectImage.setBGImage(name: "agree_normal",color: UIColor.Theme.lineColor)
         }
     }
     

@@ -295,6 +295,10 @@ extension HomeView : UITableViewDelegate,UITableViewDataSource {
         
         if indexPath.section == 1 {
             self.pushBlock?(indexPath.row)
+        }else{
+            if let tabBarVC = self.window?.rootViewController as? XWTabBarController {
+                tabBarVC.selectedIndex = 1
+            }
         }
 
     }

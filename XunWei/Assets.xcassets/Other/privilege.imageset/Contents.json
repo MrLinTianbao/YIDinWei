@@ -1,15 +1,17 @@
 {
   "images" : [
     {
+      "filename" : "专享特权.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "icon 上午10.20.22.png",
+      "filename" : "专享特权@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "专享特权@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

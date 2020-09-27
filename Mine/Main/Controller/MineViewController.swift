@@ -29,6 +29,9 @@ class MineViewController: XWViewController {
         super.viewDidLoad()
         
         let mineView = MineView()
+        
+        self.setAdjustmentBehavior(srvData: mineView.tableView)
+        
         mineView.pushBlock = {(index) in
             
             self.pushAction(index: index)

@@ -10,6 +10,8 @@ import UIKit
 
 class MineHeadView: XWView {
     
+    fileprivate let bgView = XWImageView()
+    
     let setbutton = XWButton()
     let headImageView = XWButton()
     let phoneLabel = XWButton()
@@ -25,22 +27,21 @@ class MineHeadView: XWView {
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateUserNew), name: .updateUserNew, object: nil)
         
-        self.backgroundColor = UIColor.clear
+        bgView.image = "mine_bg".getImage()
+        self.addSubview(bgView)
         
-        setbutton.setImage(image: "ic_me_setting")
+        setbutton.setImage(image: "ic_me_setting",color: UIColor.white)
         self.addSubview(setbutton)
         
         headImageView.setImage(image: "tanshu_user_header_icon")
         self.addSubview(headImageView)
         
-        phoneLabel.setTextColor(color: UIColor.black)
         phoneLabel.setText(text: isLogin ? UserInfo.phone : loginFirst)
         phoneLabel.setFont(size: 18, isBold: true)
         self.addSubview(phoneLabel)
         
-        nickNameLabel.setTextColor(color: UIColor.black)
         nickNameLabel.setText(text: isLogin ? UserInfo.nickname : "xxxxxx")
-        nickNameLabel.setTextColor(color: UIColor.Theme.font)
+        nickNameLabel.setTextColor(color: UIColor.white)
         nickNameLabel.setFont(size: 14)
         self.addSubview(nickNameLabel)
         
@@ -64,8 +65,13 @@ class MineHeadView: XWView {
         renewalBtn.setCornerRadius(15)
         renewalView.addSubview(renewalBtn)
         
+        bgView.snp.makeConstraints { (make) in
+            make.top.left.right.equalToSuperview()
+            make.height.equalTo(ScreenW*0.62)
+        }
+        
         setbutton.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(20)
+            make.top.equalToSuperview().offset(30)
             make.right.equalToSuperview().offset(-20)
             make.width.height.equalTo(30)
         }
@@ -91,7 +97,7 @@ class MineHeadView: XWView {
         }
         
         renewalView.snp.makeConstraints { (make) in
-            make.top.equalTo(headImageView.snp.bottom).offset(20)
+            make.centerY.equalTo(bgView.snp.bottom).offset(-20)
             make.left.equalTo(headImageView)
             make.right.equalTo(setbutton)
             make.height.equalTo(70)

@@ -17,7 +17,7 @@ class ServiceView: XWView {
     init() {
         super.init(frame: .zero)
         
-        logoImage.image = "WechatIMG566".getImage()
+        logoImage.image = "icon".getImage()
         logoImage.contentMode = .scaleAspectFit
         self.addSubview(logoImage)
         

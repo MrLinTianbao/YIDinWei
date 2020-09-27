@@ -40,7 +40,7 @@ extension UIColor {
         
         static let red = UIColor.red
         
-        static let pink = UIColor.red.withAlphaComponent(0.5)
+        static let pink = UIColor.setRGB(0xF83E54)
         
         static let golden = UIColor.setRGB(0xFAD89A)
         

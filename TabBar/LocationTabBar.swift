@@ -38,10 +38,10 @@ class LocationTabBar: UITabBar {
         super.layoutSubviews()
         
         //  设定button大小为适应图片
-        let normalImage = "main_location_n".getImage()
+        let normalImage = "main_location_n".getImage().xw_imageChangeColor(UIColor.Theme.red)
         
-        let width = normalImage.size.width/3*2
-        let height = normalImage.size.height/3*2
+        let width = normalImage!.size.width/3*2
+        let height = normalImage!.size.height/3*2
         
         centerBtn.backgroundColor = UIColor.white
         centerBtn.setImage(normalImage, for: .normal)

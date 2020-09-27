@@ -36,11 +36,20 @@ class UnlockCell: XWTableViewCell {
                 newPriceLabel.backgroundColor = UIColor.Theme.goldenBlack
                 newPriceLabel.textColor = UIColor.Theme.golden
                 bgView.setBGImage(name: "goldFill_bg")
+                priceLabel.textColor = UIColor.Theme.goldenBlack
+                oldPriceLabel.textColor = UIColor.Theme.goldenBlack
+                oldPriceLabel.attributedText = oldPriceLabel.text?.xw_addDeleteline(color: UIColor.Theme.goldenBlack)
+                confirmBtn.setTextColor(color: UIColor.Theme.golden)
+                confirmBtn.backgroundColor = UIColor.Theme.goldenBlack
             }else{
                 typeLabel.textColor = UIColor.Theme.golden
                 newPriceLabel.backgroundColor = UIColor.Theme.golden
                 newPriceLabel.textColor = UIColor.Theme.goldenBlack
                 bgView.setBGImage(name: "gold_bg")
+                priceLabel.textColor = UIColor.Theme.golden
+                oldPriceLabel.attributedText = oldPriceLabel.text?.xw_addDeleteline(color: UIColor.Theme.golden)
+                confirmBtn.setTextColor(color: UIColor.Theme.goldenBlack)
+                confirmBtn.backgroundColor = UIColor.Theme.golden
             }
         }
     }
@@ -63,7 +72,7 @@ class UnlockCell: XWTableViewCell {
         newPriceLabel.setCornerRadius(25)
         bgView.addSubview(newPriceLabel)
         
-        oldPriceLabel.attributedText = "188.0".xw_addDeleteline()
+        oldPriceLabel.attributedText = "188.0".xw_addDeleteline(color: UIColor.Theme.golden)
         oldPriceLabel.textColor = UIColor.Theme.golden
         oldPriceLabel.setFont(size: 12)
         bgView.addSubview(oldPriceLabel)
@@ -170,7 +179,7 @@ class UnlockCell: XWTableViewCell {
         
         priceLabel.text = only + (model.unit ?? "0.0") + dayAndYuan
         newPriceLabel.text = model.amount! + "\n" + yuan
-        oldPriceLabel.attributedText = model.price?.xw_addDeleteline()
+        oldPriceLabel.attributedText = model.price?.xw_addDeleteline(color: UIColor.Theme.golden)
         typeLabel.text = model.name
         discountLabel.setText(text: "66" + discount)
     }

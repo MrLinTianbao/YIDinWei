@@ -10,7 +10,6 @@ import UIKit
 
 class AddPhoneView: XWView {
     
-    fileprivate let logoImage = XWImageView()
     fileprivate let titleLabel = XWLabel()
     fileprivate let phoneTF = XWTextField.init(Width: 10)
     fileprivate let bookBtn = XWButton()
@@ -35,14 +34,11 @@ class AddPhoneView: XWView {
         self.setCornerRadius(10)
         self.setShadow(offsetW: 0, offsetH: 0)
         
-        logoImage.image = "add_friend_phone_icon".getImage().xw_imageChangeColor(UIColor.Theme.green)
-        self.addSubview(logoImage)
-        
         titleLabel.text = addPhoneNumber
         titleLabel.setFont(size: 16,isBold: true)
         self.addSubview(titleLabel)
         
-        bgView.setCornerRadius(20)
+        bgView.setCornerRadius(17.5)
         bgView.setborder(size: 1, color: UIColor.Theme.lineColor)
         self.addSubview(bgView)
         
@@ -54,29 +50,24 @@ class AddPhoneView: XWView {
         bookBtn.addAction { (sender) in
             self.addBlock?()
         }
+        bookBtn.setCornerRadius(17.5)
         bookBtn.setText(text: addressBook)
-        bookBtn.backgroundColor = UIColor.Theme.green
+        bookBtn.backgroundColor = UIColor.Theme.red
         bookBtn.setFont(size: 16)
         bgView.addSubview(bookBtn)
         
-        logoImage.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(20)
-            make.left.equalToSuperview().offset(20)
-            make.width.height.equalTo(20)
-        }
-        
         titleLabel.snp.makeConstraints { (make) in
-            make.left.equalTo(logoImage.snp.right).offset(5)
+            make.left.equalToSuperview().offset(30)
             make.right.equalToSuperview().offset(-20)
             make.height.greaterThanOrEqualTo(10)
-            make.centerY.equalTo(logoImage)
+            make.top.equalTo(20)
         }
         
         bgView.snp.makeConstraints { (make) in
-            make.top.equalTo(logoImage.snp.bottom).offset(20)
+            make.top.equalTo(titleLabel.snp.bottom).offset(15)
             make.right.equalTo(titleLabel)
-            make.left.equalTo(logoImage)
-            make.height.equalTo(40)
+            make.left.equalTo(20)
+            make.height.equalTo(35)
         }
         
         bookBtn.snp.makeConstraints { (make) in
