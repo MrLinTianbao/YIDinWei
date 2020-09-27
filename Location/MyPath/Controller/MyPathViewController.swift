@@ -12,9 +12,10 @@ class MyPathViewController: XWViewController {
     
     fileprivate var userId = ""
     
-    init(userId:String?=UserInfo.id) {
+    init(userId:String?=UserInfo.id,title:String?=myPath) {
         super.init(nibName: nil, bundle: nil)
         
+        self.title = title!
         self.userId = userId!
         
     }
@@ -26,7 +27,7 @@ class MyPathViewController: XWViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = myPath
+        
         
         let myPathView = MyPathView.init(userId: userId)
         self.view.addSubview(myPathView)

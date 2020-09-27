@@ -35,10 +35,12 @@ class UnlockCell: XWTableViewCell {
                 typeLabel.textColor = UIColor.Theme.goldenBlack
                 newPriceLabel.backgroundColor = UIColor.Theme.goldenBlack
                 newPriceLabel.textColor = UIColor.Theme.golden
+                bgView.setBGImage(name: "goldFill_bg")
             }else{
                 typeLabel.textColor = UIColor.Theme.golden
                 newPriceLabel.backgroundColor = UIColor.Theme.golden
                 newPriceLabel.textColor = UIColor.Theme.goldenBlack
+                bgView.setBGImage(name: "gold_bg")
             }
         }
     }
@@ -49,7 +51,7 @@ class UnlockCell: XWTableViewCell {
         blackView.backgroundColor = UIColor.Theme.vip_bg
         self.contentView.addSubview(blackView)
         
-        bgView.backgroundColor = UIColor.Theme.brown
+        bgView.backgroundColor = UIColor.clear
         blackView.addSubview(bgView)
         
         newPriceLabel.numberOfLines = 0
@@ -140,7 +142,7 @@ class UnlockCell: XWTableViewCell {
         confirmBtn.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-10)
             make.centerY.equalTo(newPriceLabel)
-            make.width.equalTo(80)
+            make.width.equalTo(70)
             make.height.equalTo(24)
         }
         

@@ -36,7 +36,7 @@ class HomeViewController: XWViewController {
             self.navigationController?.pushViewController(NoticeViewController())
         }
         homeView.pushBlock = {(index) in
-            self.navigationController?.pushViewController(MyPathViewController.init(userId: homeView.dataArray[index].friendUserId ?? ""))
+            self.navigationController?.pushViewController(MyPathViewController.init(userId: homeView.dataArray[index].friendUserId ?? "",title: friendPath))
         }
         homeView.addBlock = {
             if !isLogin {

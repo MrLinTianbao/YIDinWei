@@ -45,7 +45,7 @@ class MineHeadView: XWView {
         self.addSubview(nickNameLabel)
         
         renewalView.backgroundColor = UIColor.clear
-        renewalView.setBGImage(name: "ic_unlock_privilege")
+        renewalView.setBGImage(name: "members_bg")
         self.addSubview(renewalView)
         
         unlockLabel.text = UserInfo.is_vip == "1" ? unlock : lock

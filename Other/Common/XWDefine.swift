@@ -14,10 +14,10 @@ let appRId = "1"
 let linkId = "2"
 let pushId = "1"
 
-let geoAppKey = "557dd81ef314df7a012073769c38bb18"
+let geoAppKey = "8077588e7e7713c8867a154ae1334a30"
 let wechatAppKey = "wxac780f84a5667fdf"
 let universalLink = "https://h5ios.uksdvip.com/app1/"
-let geoWebKey = "8077588e7e7713c8867a154ae1334a30"
+//let geoWebKey = "8077588e7e7713c8867a154ae1334a30"
 let pushKey = "5856c4ef4cf77c8a9dfd4b42"
 let downLoadUrl = "https://apps.apple.com/us/app/id1528304531" //下载链接
 
