@@ -49,7 +49,7 @@ class UseViewController: XWViewController {
    //MARK: 滚动标签
    fileprivate lazy var pageTitleView: SGPageTitleView = {
        
-    let view = SGPageTitleView.init(frame: CGRect.init(x: 0, y: 60, width: ScreenW, height: 40), delegate: self, titleNames: [careAbout,friendPath], configure: self.configPageView(titleSelectedColor: UIColor.Theme.blue))!
+    let view = SGPageTitleView.init(frame: CGRect.init(x: 0, y: 60, width: ScreenW, height: 40), delegate: self, titleNames: [careAbout,friendPath], configure: self.configPageView(titleSelectedColor: UIColor.Theme.red))!
        view.backgroundColor = UIColor.white
        
        return view
@@ -66,7 +66,7 @@ class UseViewController: XWViewController {
            configure.titleSelectedColor = titleSelectedColor
            configure.indicatorStyle = SGIndicatorStyleFixed
            configure.bottomSeparatorColor = UIColor.clear
-           configure.indicatorColor = UIColor.Theme.blue
+           configure.indicatorColor = UIColor.Theme.red
            configure.indicatorAnimationTime = 0.2
            configure.indicatorFixedWidth = ScreenW/2
            configure.indicatorHeight = 2

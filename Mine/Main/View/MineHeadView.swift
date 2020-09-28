@@ -98,7 +98,7 @@ class MineHeadView: XWView {
         
         renewalView.snp.makeConstraints { (make) in
             make.centerY.equalTo(bgView.snp.bottom).offset(-20)
-            make.left.equalTo(headImageView)
+            make.left.equalToSuperview().offset(20)
             make.right.equalTo(setbutton)
             make.height.equalTo(70)
         }

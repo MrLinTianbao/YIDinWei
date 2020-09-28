@@ -68,7 +68,7 @@ let inviteForFrined = "邀请您成为好友"
 
 let agree = "同意"
 let hasAgree = "已同意"
-let notice = "通知"
+let notice = "消息中心"
 
 let deleteSuccess = "删除成功"
 let isChange = "正在修改"
