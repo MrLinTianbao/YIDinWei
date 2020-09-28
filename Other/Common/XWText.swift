@@ -98,7 +98,7 @@ let lock = "功能未解锁"
 let unlock = "功能已解锁"
 let goUnlock = "解锁"
 let memberDate = "会员截止日期"
-let renewal = "续费"
+let renewal = "立即续费"
 let loginFirst = "请先登录"
 
 let myPath = "我的轨迹"
@@ -110,8 +110,8 @@ let useTutorial = "使用教程"
 let commonQuession = "常见问题"
 
 //设置
-let privacyPolicy = "隐私政策"
-let userProtocol = "用户协议"
+let privacyPolicy = "《隐私政策》"
+let userProtocol = "《用户协议》"
 let paymentProtocol = "用户付费协议"
 let signOut = "退出登录"
 let toSignOut = "是否退出登录"
@@ -129,7 +129,7 @@ let serviceQQ = "客服QQ"
 let serviceTime = "服务时间"
 
 //续费
-let unlockFunction = "解锁功能"
+let unlockFunction = "会员特权"
 let privilege = "专享特权"
 let historyRecord = "实时位置和历史轨迹记录"
 let aboutPrivilege = "此产品定位服务需双方同意才可开启，不涉及侵犯他人隐私"
@@ -147,7 +147,7 @@ let originalPrice = "原价"
 let toTopup = "立即充值"
 
 let agreePaymentAgreement = "同意《付费会员服务协议》"
-let paymentAgreement = "付费会员服务协议"
+let paymentAgreement = "《付费会员服务协议》"
 let aboutAgreement = "根据相关法律法规对个人隐私相关规定VIP功能需双方均安装并互为好友授权同意后方可使用，请阅读付费协议后购买"
 
 let wechatPay = "微信支付"

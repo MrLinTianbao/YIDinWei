@@ -32,7 +32,7 @@ class AddPhoneView: XWView {
         super.init(frame: .zero)
         
         self.setCornerRadius(10)
-        self.setShadow(offsetW: 0, offsetH: 0)
+//        self.setShadow(offsetW: 0, offsetH: 0)
         
         titleLabel.text = addPhoneNumber
         titleLabel.setFont(size: 16,isBold: true)

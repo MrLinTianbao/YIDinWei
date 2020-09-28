@@ -32,15 +32,17 @@ class UnlockFootView: XWView {
         self.addSubview(selectImage)
         
         tipLabel.attributedText = UnlockPresenter.setFontStyle()
-        tipLabel.linkTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.Theme.red]
+        tipLabel.linkTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.Theme.golden]
         tipLabel.delegate = self
         tipLabel.setFont(size: 14)
         tipLabel.isEditable = false
+        tipLabel.textColor = UIColor.Theme.font
         self.addSubview(tipLabel)
         
         aboutLabel.numberOfLines = 0
         aboutLabel.attributedText = aboutAgreement.xw_changeLineForString(lineSpace: 5)
         aboutLabel.setFont(size: 14)
+        aboutLabel.textColor = UIColor.Theme.font
         self.addSubview(aboutLabel)
         
         selectImage.snp.makeConstraints { (make) in

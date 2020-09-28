@@ -37,7 +37,7 @@ class MineHeadView: XWView {
         self.addSubview(headImageView)
         
         phoneLabel.setText(text: isLogin ? UserInfo.phone : loginFirst)
-        phoneLabel.setFont(size: 18, isBold: true)
+        phoneLabel.setFont(size: 21, isBold: true)
         self.addSubview(phoneLabel)
         
         nickNameLabel.setText(text: isLogin ? UserInfo.nickname : "xxxxxx")
@@ -50,18 +50,18 @@ class MineHeadView: XWView {
         self.addSubview(renewalView)
         
         unlockLabel.text = UserInfo.is_vip == "1" ? unlock : lock
-        unlockLabel.textColor = UIColor.Theme.brown
+        unlockLabel.textColor = UIColor.setRGB(0x865013)
         unlockLabel.setFont(size: 16, isBold: true)
         renewalView.addSubview(unlockLabel)
         
         timeLabel.text = UserInfo.is_vip == "1" ? (unlock + "：" + UserInfo.vip_end) : lock
-        timeLabel.textColor = UIColor.Theme.brown
+        timeLabel.textColor = UIColor.setRGB(0xB99264)
         timeLabel.setFont(size: 14)
         renewalView.addSubview(timeLabel)
         
         renewalBtn.setText(text: UserInfo.is_vip == "1" ? renewal : goUnlock)
-        renewalBtn.backgroundColor = UIColor.Theme.black
-        renewalBtn.setFont(size: 16)
+        renewalBtn.backgroundColor = UIColor.setRGB(0x6D400A)
+        renewalBtn.setFont(size: 13)
         renewalBtn.setCornerRadius(15)
         renewalView.addSubview(renewalBtn)
         

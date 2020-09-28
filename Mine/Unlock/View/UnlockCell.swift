@@ -85,7 +85,7 @@ class UnlockCell: XWTableViewCell {
         priceLabel.text = only + "3.3" + dayAndYuan
         priceLabel.textColor = UIColor.Theme.golden
         priceLabel.textAlignment = .center
-        priceLabel.setFont(size: 14)
+        priceLabel.setFont(size: 12)
         bgView.addSubview(priceLabel)
         
         discountLabel.setText(text: "66" + discount)
@@ -98,7 +98,7 @@ class UnlockCell: XWTableViewCell {
         newUserLabel.backgroundColor = UIColor.rgb(60, 56, 44)
         newUserLabel.textColor = UIColor.Theme.golden
         newUserLabel.setFont(size: 9)
-        newUserLabel.setCornerRadius(6)
+        newUserLabel.setCornerRadius(7)
         bgView.addSubview(newUserLabel)
         
         confirmBtn.setText(text: toTopup)
@@ -151,7 +151,7 @@ class UnlockCell: XWTableViewCell {
         confirmBtn.snp.makeConstraints { (make) in
             make.right.equalToSuperview().offset(-10)
             make.centerY.equalTo(newPriceLabel)
-            make.width.equalTo(70)
+            make.width.equalTo(74)
             make.height.equalTo(24)
         }
         
@@ -159,7 +159,7 @@ class UnlockCell: XWTableViewCell {
             make.centerY.equalTo(typeLabel)
             make.left.equalTo(typeLabel.snp.right).offset(10)
             make.width.equalTo(70)
-            make.height.equalTo(12)
+            make.height.equalTo(14)
         }
 
         discountLabel.snp.makeConstraints { (make) in

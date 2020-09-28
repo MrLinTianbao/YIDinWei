@@ -19,7 +19,7 @@ class AddWechatView: XWButton {
         self.backgroundColor = UIColor.white
         
         self.setCornerRadius(10)
-        self.setShadow(offsetW: 0, offsetH: 0)
+//        self.setShadow(offsetW: 0, offsetH: 0)
         
         textLabel.text = selectForFriendList
         textLabel.setFont(size: 16,isBold: true)

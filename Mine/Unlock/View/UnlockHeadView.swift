@@ -11,10 +11,11 @@ import UIKit
 class UnlockHeadView: XWView {
     
     fileprivate let bgView = XWView()
-    fileprivate let privilegeLabel = XWLabel()
+    fileprivate let privilegeImage = XWImageView()
     fileprivate let recordLabel = XWLabel()
     fileprivate let aboutLabel = XWLabel()
     fileprivate let logoImage = XWImageView()
+    fileprivate let crownImage = XWImageView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,10 +25,11 @@ class UnlockHeadView: XWView {
         bgView.backgroundColor = UIColor.Theme.vip_bg
         self.addSubview(bgView)
         
-        privilegeLabel.text = privilege
-        privilegeLabel.textColor = UIColor.Theme.brown
-        privilegeLabel.setFont(size: 50,isBold: true)
-        bgView.addSubview(privilegeLabel)
+        crownImage.image = "crown".getImage()
+        bgView.addSubview(crownImage)
+        
+        privilegeImage.image = "privilege".getImage()
+        bgView.addSubview(privilegeImage)
         
         recordLabel.text = historyRecord
         recordLabel.textColor = UIColor.Theme.brown
@@ -50,23 +52,28 @@ class UnlockHeadView: XWView {
             make.top.height.equalToSuperview()
         }
         
-        privilegeLabel.snp.makeConstraints { (make) in
+        privilegeImage.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(30)
-            make.width.greaterThanOrEqualTo(10)
+            make.width.equalTo(145)
             make.top.equalToSuperview().offset(25)
             make.height.equalTo(45)
         }
         
         logoImage.snp.makeConstraints { (make) in
-            make.left.equalTo(privilegeLabel.snp.right).offset(10)
-            make.centerY.equalTo(privilegeLabel)
+            make.left.equalTo(privilegeImage.snp.right).offset(10)
+            make.centerY.equalTo(privilegeImage)
             make.width.height.equalTo(45)
         }
         
+        crownImage.snp.makeConstraints { (make) in
+            make.top.equalTo(logoImage)
+            make.right.bottom.equalToSuperview()
+            make.width.equalTo(90)
+        }
    
         recordLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(privilegeLabel.snp.bottom).offset(20)
-            make.left.equalTo(privilegeLabel)
+            make.top.equalTo(logoImage.snp.bottom).offset(20)
+            make.left.equalTo(privilegeImage)
             make.right.equalToSuperview().offset(-10)
             make.height.greaterThanOrEqualTo(10)
         }

@@ -28,6 +28,8 @@ class CareView: XWView {
     init() {
         super.init(frame: .zero)
         
+        self.backgroundColor = UIColor.Theme.bgColor
+        
         let bgView = XWImageView()
         bgView.isUserInteractionEnabled = true
         bgView.image = "addFri_bg".getImage()
@@ -62,8 +64,8 @@ class CareView: XWView {
         confirmBtn.setText(text: addFriends)
         confirmBtn.setFont(size: 16,isBold: true)
         confirmBtn.backgroundColor = UIColor.Theme.red
-        confirmBtn.setCornerRadius(10)
-        confirmBtn.setShadow(offsetW: 0, offsetH: 0)
+        confirmBtn.setCornerRadius(20)
+//        confirmBtn.setShadow(offsetW: 0, offsetH: 0)
         self.addSubview(confirmBtn)
         
         bgView.snp.makeConstraints { (make) in

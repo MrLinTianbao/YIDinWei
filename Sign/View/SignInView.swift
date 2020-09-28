@@ -56,12 +56,12 @@ class SignInView: XWView {
         }
         self.addSubview(arrowBtn)
         
-        phoneTF.attributedPlaceholder = inputPhone.setTextFont(color: UIColor.Theme.red.withAlphaComponent(0.5), fontSize: 16, ranStr: inputPhone)
+        phoneTF.attributedPlaceholder = inputPhone.setTextFont(color: UIColor.Theme.pink.withAlphaComponent(0.5), fontSize: 14, ranStr: inputPhone)
         phoneTF.keyboardType = .numberPad
         phoneTF.borderStyle = .none
         bgView.addSubview(phoneTF)
         
-        codeTF.attributedPlaceholder = inputCode.setTextFont(color: UIColor.Theme.red.withAlphaComponent(0.5), fontSize: 16, ranStr: inputCode)
+        codeTF.attributedPlaceholder = inputCode.setTextFont(color: UIColor.Theme.pink.withAlphaComponent(0.5), fontSize: 14, ranStr: inputCode)
         codeTF.keyboardType = .numberPad
         codeTF.borderStyle = .none
         bgView.addSubview(codeTF)
@@ -76,7 +76,7 @@ class SignInView: XWView {
             self.sendSMSCode()
         }
         codeBtn.setText(text: getCode)
-        codeBtn.setFont(size: 16)
+        codeBtn.setFont(size: 14)
         codeBtn.setCornerRadius(15)
         codeBtn.setTextColor(color: UIColor.Theme.red)
         codeBtn.setborder(size: 1, color: UIColor.Theme.red)
@@ -99,9 +99,10 @@ class SignInView: XWView {
         
         tipLabel.backgroundColor = UIColor.clear
         tipLabel.attributedText = SignInPresenter.setFontStyle()
+        tipLabel.textColor = UIColor.Theme.font
         tipLabel.linkTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.Theme.red]
         tipLabel.delegate = self
-        tipLabel.setFont(size: 14)
+        tipLabel.setFont(size: 12)
         tipLabel.isEditable = false
         self.addSubview(tipLabel)
         
@@ -145,7 +146,7 @@ class SignInView: XWView {
         codeBtn.snp.makeConstraints { (make) in
             make.right.equalTo(phoneTF)
             make.top.equalTo(lineView.snp.bottom).offset(30)
-            make.width.equalTo(120)
+            make.width.equalTo(90)
             make.height.equalTo(30)
         }
         
@@ -168,15 +169,15 @@ class SignInView: XWView {
         }
         
         selectBtn.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(20)
-            make.top.equalTo(bgView.snp.bottom).offset(37.5)
+            make.left.equalTo(bgView)
+            make.top.equalTo(bgView.snp.bottom).offset(20)
             make.width.height.equalTo(20)
         }
         
         tipLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(signInBtn.snp.bottom).offset(30)
+            make.top.equalTo(signInBtn.snp.bottom).offset(13)
             make.right.equalToSuperview().offset(-20)
-            make.height.equalTo(aboutsignInTip.xw_calculateHeigh(withWidth: ScreenW-65, size: 16, lineSpacing: 5))
+            make.height.equalTo(aboutsignInTip.xw_calculateHeigh(withWidth: ScreenW-85, size: 16, lineSpacing: 5))
             make.left.equalTo(selectBtn.snp.right)
         }
         

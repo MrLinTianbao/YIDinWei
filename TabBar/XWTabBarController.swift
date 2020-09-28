@@ -54,7 +54,7 @@ class XWTabBarController: UITabBarController {
         
         let tabBar = UITabBarItem.init(title: title, image: imageName.getImage().withRenderingMode(.alwaysOriginal), selectedImage: (selectImage.getImage().xw_imageChangeColor(UIColor.Theme.red) ?? UIImage()).withRenderingMode(.alwaysOriginal))
 
-        tabBar.setTitleTextAttributes(convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.black]), for: .selected)
+        tabBar.setTitleTextAttributes(convertToOptionalNSAttributedStringKeyDictionary([convertFromNSAttributedStringKey(NSAttributedString.Key.foregroundColor) : UIColor.Theme.red]), for: .selected)
         
 
         let nav = XWNavigationController(rootViewController: childVC)

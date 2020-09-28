@@ -38,9 +38,9 @@ extension UIColor {
         
         static let green = UIColor.rgb(16, 176, 102)
         
-        static let red = UIColor.red
+        static let red = UIColor.setRGB(0xf83e54)
         
-        static let pink = UIColor.setRGB(0xF83E54)
+        static let pink = UIColor.setRGB(0xFFA2AC)
         
         static let golden = UIColor.setRGB(0xFAD89A)
         
@@ -58,7 +58,7 @@ extension UIColor {
         
         static let black = UIColor.rgb(35, 35, 35)
         
-        static let font = UIColor.rgb(125, 125, 125)
+        static let font = UIColor.setRGB(0x9A9A9A)
         
         static let vip_bg = UIColor.setRGB(0x282123)
         
